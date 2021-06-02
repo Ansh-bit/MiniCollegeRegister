@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/home.css">
+        <script src="https://kit.fontawesome.com/4a52e24b44.js" crossorigin="anonymous"></script>
+      <title>
+        <%=title %>
+       </title>
+    </head>
+    <body>
+        
+        <h1><i class="fas fa-address-book"></i>Contact lists</h1>
+        <div>
+        <ul>
+        <% for(let i of contact_list){
+            %>
+            <li>
+               <div class="list">
+                <p><i id="name-icon" class="fas fa-id-card"></i><%=i.name %></p>
+                <p><%=i.phone %></p>
+                <p><%=i.branch %></p>
+                <p><%=i.rollno %></p>
+                <div class="delete-button">
+                    <a href="/delete-contact/?id=<%=i.id %>"><i class="fas fa-window-close"></i></a>
+                </div>   
+            </div>
+             
+            </li>
+            <%
+        }
+         %>
+         </ul>
+        </div>
+       
+    <form action="/create-contact" method="POST">
+       <input type="text" name="name" placeholder="Enter your name" required>
+       <input type="number" name="phone" placeholder="Enter phoneNo." required>
+       <input type="text" name="branch" placeholder="Enter your branch" required>
+       <input type="number" name="rollno" placeholder="Enter Rollno." required>
+       <button class="btn" type="submit">Add Contact</button>    
+    </form>
+ 
+    </body>
+</html>
